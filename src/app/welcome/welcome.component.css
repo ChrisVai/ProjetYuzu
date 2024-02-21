@@ -1,3 +1,19 @@
+.international {
+  color: #E74C3C;
+}
+
+.entertainment {
+  color: cadetblue;
+}
+
+.miscFacts {
+  color: #BB8FCE;
+}
+
+.society {
+  color: #EB984E;
+}
+
 .blueBandDeco {
   height: 7px;
   width : 145px;
@@ -38,7 +54,6 @@ article h2 {
 }
 
 article h3 {
-  color: #E74C3C;
   font-size: 0.8em;
   font-weight: 400;
   margin-top: 1.5vh;
