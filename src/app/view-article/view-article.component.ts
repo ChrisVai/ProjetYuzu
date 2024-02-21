@@ -3,7 +3,7 @@ import {HeaderComponent} from "../header/header.component";
 import {ActivatedRoute, RouterLink} from "@angular/router";
 import {ArticleService} from "../services/article.service";
 import {Article} from "../models/article";
-import {NgOptimizedImage} from "@angular/common";
+import {NgClass, NgOptimizedImage} from "@angular/common";
 
 @Component({
   selector: 'app-view-article',
@@ -11,7 +11,8 @@ import {NgOptimizedImage} from "@angular/common";
   imports: [
     HeaderComponent,
     NgOptimizedImage,
-    RouterLink
+    RouterLink,
+    NgClass
   ],
   templateUrl: './view-article.component.html',
   styleUrl: './view-article.component.css'

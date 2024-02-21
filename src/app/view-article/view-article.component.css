@@ -1,3 +1,18 @@
+.international {
+  color: #E74C3C;
+}
+
+.entertainment {
+  color: cadetblue;
+}
+
+.miscFacts {
+  color: #BB8FCE;
+}
+
+.society {
+  color: #EB984E;
+}
 article {
   display: flex;
   flex-direction: column;
@@ -12,7 +27,6 @@ article h2 {
 }
 
 article h3 {
-  color: #E74C3C;
   font-size: 0.8em;
   font-weight: 400;
   margin-top: 1.5vh;
@@ -22,6 +36,7 @@ article h3 {
 article p {
   font-weight: 300;
   font-size: 0.9em;
+  text-align: justify;
 }
 
 article img {
