@@ -15,7 +15,6 @@ export class ArticleService {
   }
 
   private _fetchArticles() {
-
     this._http.get<Article[]>(this.url)
       .subscribe(articles => {this.articles.update(() => articles)})
   }
