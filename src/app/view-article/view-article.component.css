@@ -45,3 +45,15 @@ article img {
   border-radius: 5px;
   object-fit: cover;
 }
+a {
+  align-self: center;
+  text-decoration: none;
+  padding: 0.5em 0.8em 0.5em 0.8em;
+  border: solid lightgray 1px;
+  border-radius: 50px;
+  color: black;
+  font-weight: 400;
+}
+a:hover{
+  background: lightgray;
+}

@@ -12,7 +12,9 @@
         <h2 [innerHTML]="article.title"></h2>
         <p [innerHTML]="article.subtitle"></p>
         <p [innerHTML]="article.description"></p>
+        <a href="#" [routerLink]="['']">Retour</a>
       </article>
+
     }
   }
   @if(articles().length===0 || !articles()){
