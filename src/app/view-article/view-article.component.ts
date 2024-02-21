@@ -23,11 +23,9 @@ export class ViewArticleComponent implements OnInit {
   protected id: number = 0;
   articles = this.articleManager.articles
 
-
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.id = +params["id"];
     })
-    console.log(this.id)
   }
 }
