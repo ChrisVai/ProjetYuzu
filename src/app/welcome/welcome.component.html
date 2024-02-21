@@ -1,0 +1,15 @@
+<app-header></app-header>
+<div class="blueBandDeco"></div>
+<h1>Actualités</h1>
+<div class="container">
+  @for(article of articles(); track article.id ) {
+      <article>
+        <img ngSrc="{{article.image}}" width="350" height="200" alt="image de l'article" priority>
+        <h3>{{article.category.toUpperCase()}}</h3>
+        <h2 [innerHTML]="article.title"></h2>
+        <p [innerHTML]="article.subtitle"></p>
+        <a href="#" [routerLink]="['viewArticle', article.id]"></a>
+      </article>
+  }
+</div>
+

@@ -1,0 +1,16 @@
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background: #04042F;
+  height: 6vh;
+  top: 0;
+  margin-bottom: 2em;
+}
+a {
+  color: white;
+  text-decoration: none;
+  font-weight: 300;
+  font-size: 1em;
+  margin-left: 1.5em;
+}

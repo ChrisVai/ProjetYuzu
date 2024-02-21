@@ -1,0 +1,64 @@
+.blueBandDeco {
+  height: 7px;
+  width : 145px;
+  background: blue;
+  margin-left: 1.5em;
+}
+
+h1 {
+ margin-top: 0.7em;
+  margin-left: 0.7em
+}
+
+h2 {
+  font-size: 1em;
+  margin-top : 0;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+p{
+  margin-top : 0;
+}
+
+article {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+}
+
+article h2 {
+  font-weight: 400;
+  font-size: 1em;
+}
+
+article h3 {
+  color: #E74C3C;
+  font-size: 0.8em;
+  font-weight: 400;
+  margin-top: 1.5vh;
+  margin-bottom : 1vh;
+}
+
+article p {
+  font-weight: 300;
+  font-size: 0.9em;
+}
+
+ article img {
+  border-radius: 5px;
+   object-fit: cover;
+ }
+
+ article a {
+   position: absolute;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   left: 0;
+ }
