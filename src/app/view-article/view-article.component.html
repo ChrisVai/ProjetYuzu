@@ -1,7 +1,6 @@
 <app-header></app-header>
 <div>
-  @for(article of articles(); track article.id ) {
-    @if(article.id === id) {
+  @for(article of articles$ | async; track article.id ) {
       <article>
         <img ngSrc="{{article.image}}" width="700" height="400" alt="image de l'article" priority>
         <h3 [ngClass]="{'international': article.category.toLowerCase()==='international',
@@ -14,10 +13,5 @@
         <p [innerHTML]="article.description"></p>
         <a href="#" [routerLink]="['']">Retour</a>
       </article>
-
-    }
-  }
-  @if(articles().length===0 || !articles()){
-    <p>Chargement<a href="#" [routerLink]="['']">Retour à l'accueil</a></p>
   }
 </div>

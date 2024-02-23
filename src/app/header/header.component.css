@@ -1,9 +1,9 @@
 header {
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  flex-direction: row;
+  justify-content: start;
   background: #04042F;
-  height: 6vh;
+  height: 50px;
   top: 0;
   margin-bottom: 2em;
 }
@@ -12,5 +12,11 @@ a {
   text-decoration: none;
   font-weight: 300;
   font-size: 1em;
+  margin-top : 1em;
+  margin-right: 2em;
   margin-left: 1.5em;
+}
+
+select {
+  margin-top: 1.5em;
 }
