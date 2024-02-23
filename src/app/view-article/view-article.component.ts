@@ -1,9 +1,10 @@
-import {Component, inject, OnInit} from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {HeaderComponent} from "../header/header.component";
 import {ActivatedRoute, RouterLink} from "@angular/router";
 import {ArticleService} from "../services/article.service";
 import {Article} from "../models/article";
-import {NgClass, NgOptimizedImage} from "@angular/common";
+import {AsyncPipe, NgClass, NgOptimizedImage} from "@angular/common";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-view-article',
@@ -12,20 +13,23 @@ import {NgClass, NgOptimizedImage} from "@angular/common";
     HeaderComponent,
     NgOptimizedImage,
     RouterLink,
-    NgClass
+    NgClass,
+    AsyncPipe
   ],
   templateUrl: './view-article.component.html',
   styleUrl: './view-article.component.css'
 })
-export class ViewArticleComponent implements OnInit {
+
+export class ViewArticleComponent {
+
   private articleManager: ArticleService = inject(ArticleService);
   private route: ActivatedRoute = inject(ActivatedRoute);
-  protected id: number = 0;
-  articles = this.articleManager.articles
+  protected id = this.getIdFromRouteParams()
+  articles$: Observable<Article[]> = this.articleManager.getArticlesById(this.getIdFromRouteParams())
 
-  ngOnInit(): void {
-    this.route.params.subscribe(params => {
-      this.id = +params["id"];
-    })
+  getIdFromRouteParams():number {
+    let id:number =0;
+    this.route.params.subscribe(params => {id = +params["id"]})
+    return id
   }
 }

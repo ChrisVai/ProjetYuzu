@@ -1,19 +1,35 @@
 <app-header></app-header>
 <div class="blueBandDeco"></div>
-<h1>Actualités</h1>
+<div class="searchBar">
+  <h1>Actualités</h1>
+  <form [formGroup]="search">
+    <input type="text" id="searchArticle" placeholder="Rechercher" formControlName="searchArticle">
+    <select formControlName="categoryFilter" >
+      <option value="" selected>Tout afficher</option>
+      <option value="International" selected>International</option>
+      <option value="Divertissement">Divertissement</option>
+      <option value="Faits divers">Faits divers</option>
+      <option value="société">Société</option>
+    </select>
+  </form>
+</div>
 <div class="container">
-  @for(article of articles(); track article.id ) {
-      <article>
-        <img ngSrc="{{article.image}}" width="350" height="200" alt="image de l'article" priority>
-        <h3 [ngClass]="{'international': article.category.toLowerCase()==='international',
+  @if(!articles$.pipe(isEmpty)) {
+    <p>il n'y a pas d'article à afficher pour le moment</p>
+  }
+    @for(article of articles$ | async; track article.id ) {
+      <a href="#" [routerLink]="['viewArticle', article.id]">
+        <article>
+          <img ngSrc="{{article.image}}" width="350" height="200" alt="image de l'article" priority>
+          <h3 [ngClass]="{'international': article.category.toLowerCase()==='international',
                         'entertainment': article.category.toLowerCase()==='divertissement',
                         'miscFacts': article.category.toLowerCase()==='faits divers',
                         'society': article.category.toLowerCase()==='société',}"
-        > {{article.category.toUpperCase()}}</h3>
-        <h2 [innerHTML]="article.title"></h2>
-        <p [innerHTML]="article.subtitle"></p>
-        <a href="#" [routerLink]="['viewArticle', article.id]"></a>
-      </article>
-  }
+          > {{article.category.toUpperCase()}}</h3>
+          <h2 [innerHTML]="article.title"></h2>
+          <p [innerHTML]="article.subtitle"></p>
+        </article>
+      </a>
+    }
 </div>
 

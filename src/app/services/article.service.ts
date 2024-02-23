@@ -1,21 +1,25 @@
-import {inject, Injectable, signal} from '@angular/core';
+import {inject, Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Article} from "../models/article";
+import {map, Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class ArticleService {
-  private url = "https://examsdv.gzc-labs.com/articles/";
+
+  private articlesUrl = "https://examsdv.gzc-labs.com/articles/";
   private _http: HttpClient = inject(HttpClient);
-  articles = signal<Article[]>([]);
   constructor() {
-    this._fetchArticles()
+    this.fetchArticles()
   }
 
-  private _fetchArticles() {
-    this._http.get<Article[]>(this.url)
-      .subscribe(articles => {this.articles.update(() => articles)})
+  fetchArticles(): Observable<Article[]> {
+    return this._http.get<Article[]>(this.articlesUrl)
+  }
+
+  getArticlesById(id:number): Observable<Article[]> {
+    return this.fetchArticles().pipe(map((articles => articles.filter(article => article.id == id))))
   }
 }
