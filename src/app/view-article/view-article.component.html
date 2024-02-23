@@ -11,6 +11,7 @@
         <h2 [innerHTML]="article.title"></h2>
         <p [innerHTML]="article.subtitle"></p>
         <p [innerHTML]="article.description"></p>
+        <p class="author">{{article.author}}</p>
         <a href="#" [routerLink]="['']">Retour</a>
       </article>
   }
