@@ -1,4 +1,4 @@
-import {Component, inject} from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
 import {HeaderComponent} from "../header/header.component";
 import {ActivatedRoute, RouterLink} from "@angular/router";
 import {ArticleService} from "../services/article.service";
@@ -17,7 +17,8 @@ import {Observable} from "rxjs";
     AsyncPipe
   ],
   templateUrl: './view-article.component.html',
-  styleUrl: './view-article.component.css'
+  styleUrl: './view-article.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class ViewArticleComponent {
