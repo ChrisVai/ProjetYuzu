@@ -24,18 +24,14 @@ import {FormBuilder, ReactiveFormsModule} from "@angular/forms";
 
 export class WelcomeComponent {
 
-  private articleManager: ArticleService = inject(ArticleService);
+  private _articleManager: ArticleService = inject(ArticleService);
   private _formBuilder: FormBuilder = inject(FormBuilder)
   search = this._formBuilder.nonNullable.group(
     {searchArticle: [''],
       categoryFilter: ['']
     })
-  articles$: Observable<Article[]> = this.articleManager.getFilteredArticles(
+  articles$: Observable<Article[]> = this._articleManager.getFilteredArticles(
     this.search.controls.searchArticle.valueChanges.pipe(startWith('')),
     this.search.controls.categoryFilter.valueChanges.pipe(startWith(''))
   )
-
-  isEmpty(param: Observable<any[]>): Observable<boolean>{
-    return param.pipe(isEmpty())
-  }
 }

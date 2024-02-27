@@ -12,9 +12,6 @@ export class ArticleService {
   private articlesUrl = "https://examsdv.gzc-labs.com/articles/";
   private _http: HttpClient = inject(HttpClient);
 
-  constructor() {
-  }
-
   fetchArticles(): Observable<Article[]> {
     return this._http.get<Article[]>(this.articlesUrl)
   }
