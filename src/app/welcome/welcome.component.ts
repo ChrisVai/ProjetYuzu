@@ -3,7 +3,7 @@ import {ArticleService} from "../services/article.service";
 import {AsyncPipe, NgClass, NgOptimizedImage} from "@angular/common";
 import {RouterLink} from "@angular/router";
 import {HeaderComponent} from "../header/header.component";
-import {combineLatest, isEmpty, map, Observable, startWith} from "rxjs";
+import {isEmpty, Observable, startWith} from "rxjs";
 import {Article} from "../models/article";
 import {FormBuilder, ReactiveFormsModule} from "@angular/forms";
 
@@ -19,7 +19,7 @@ import {FormBuilder, ReactiveFormsModule} from "@angular/forms";
     ReactiveFormsModule
   ],
   templateUrl: './welcome.component.html',
-  styleUrl: './welcome.component.css'
+  styleUrl: './welcome.component.css',
 })
 
 export class WelcomeComponent {
