@@ -25,30 +25,15 @@ import {FormBuilder, ReactiveFormsModule} from "@angular/forms";
 export class WelcomeComponent {
 
   private articleManager: ArticleService = inject(ArticleService);
-  private formBuilder: FormBuilder = inject(FormBuilder)
-  search = this.formBuilder.nonNullable.group({
-    searchArticle: [''],
-    categoryFilter: ['']
-  })
-  articles$: Observable<Article[]> = this.getFilteredArticles()
-
-  private getFilteredArticles(): Observable<Article[]> {
-
-    const articles$: Observable<Article[]> = this.articleManager.fetchArticles();
-    const search$ = combineLatest([
-      this.search.controls.searchArticle.valueChanges.pipe(startWith('')),
-      this.search.controls.categoryFilter.valueChanges.pipe(startWith(''))
-    ])
-
-    return combineLatest([articles$,search$]).pipe(
-      map(([articles, [research,categoryFilter]]) => articles.filter(article => {
-        const researchMatching = article.title.toLowerCase().includes(research.toLowerCase());
-        const categoryFilterMatching = article.category.toLowerCase().includes(categoryFilter.toLowerCase());
-
-        return researchMatching && categoryFilterMatching;
-      }))
-    )
-  }
+  private _formBuilder: FormBuilder = inject(FormBuilder)
+  search = this._formBuilder.nonNullable.group(
+    {searchArticle: [''],
+      categoryFilter: ['']
+    })
+  articles$: Observable<Article[]> = this.articleManager.getFilteredArticles(
+    this.search.controls.searchArticle.valueChanges.pipe(startWith('')),
+    this.search.controls.categoryFilter.valueChanges.pipe(startWith(''))
+  )
 
   isEmpty(param: Observable<any[]>): Observable<boolean>{
     return param.pipe(isEmpty())
