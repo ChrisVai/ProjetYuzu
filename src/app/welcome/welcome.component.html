@@ -13,9 +13,6 @@
   </form>
 </div>
 <div class="container">
-  @if(!articles$.pipe(isEmpty)) {
-    <p>il n'y a pas d'article à afficher pour le moment</p>
-  }
     @for(article of articles$ | async; track article.id ) {
       <a href="#" [routerLink]="['viewArticle', article.id]">
         <article>
