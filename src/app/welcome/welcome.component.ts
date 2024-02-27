@@ -1,9 +1,9 @@
-import {Component, inject} from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
 import {ArticleService} from "../services/article.service";
 import {AsyncPipe, NgClass, NgOptimizedImage} from "@angular/common";
 import {RouterLink} from "@angular/router";
 import {HeaderComponent} from "../header/header.component";
-import {isEmpty, Observable, startWith} from "rxjs";
+import {Observable, startWith} from "rxjs";
 import {Article} from "../models/article";
 import {FormBuilder, ReactiveFormsModule} from "@angular/forms";
 
@@ -20,6 +20,7 @@ import {FormBuilder, ReactiveFormsModule} from "@angular/forms";
   ],
   templateUrl: './welcome.component.html',
   styleUrl: './welcome.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class WelcomeComponent {
