@@ -23,14 +23,13 @@ import {Observable} from "rxjs";
 
 export class ViewArticleComponent {
 
-  private articleManager: ArticleService = inject(ArticleService);
-  private route: ActivatedRoute = inject(ActivatedRoute);
-  protected id = this.getIdFromRouteParams()
+  articleManager: ArticleService = inject(ArticleService);
+  private _route: ActivatedRoute = inject(ActivatedRoute);
   articles$: Observable<Article[]> = this.articleManager.getArticlesById(this.getIdFromRouteParams())
 
   getIdFromRouteParams():number {
     let id:number =0;
-    this.route.params.subscribe(params => {id = +params["id"]})
+    this._route.params.subscribe(params => {id = +params["id"]})
     return id
   }
 }

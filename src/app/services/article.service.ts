@@ -34,4 +34,10 @@ export class ArticleService {
       }))
     )
   }
+
+  getClassNameFromCategory(article:Article): string {
+
+    return article.category.replace(' ', '').toLowerCase()
+
+  }
 }
