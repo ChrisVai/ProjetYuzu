@@ -2,10 +2,7 @@
   @for(article of articles$ | async; track article.id ) {
       <article>
         <img ngSrc="{{article.image}}" width="700" height="400" alt="image de l'article" priority>
-        <h3 [ngClass]="{'international': article.category.toLowerCase()==='international',
-                        'entertainment': article.category.toLowerCase()==='divertissement',
-                        'miscFacts': article.category.toLowerCase()==='faits divers',
-                        'society': article.category.toLowerCase()==='société',}"
+        <h3 [ngClass]=articleManager.getClassNameFromCategory(article)
         > {{article.category.toUpperCase()}}</h3>
         <h2 [innerHTML]="article.title"></h2>
         <p [innerHTML]="article.subtitle"></p>
