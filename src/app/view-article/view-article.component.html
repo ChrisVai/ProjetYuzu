@@ -1,5 +1,5 @@
 <div>
-  @for(article of articles$ | async; track article.id ) {
+  @for(article of article$ | async; track article.id ) {
       <article>
         <img ngSrc="{{article.image}}" width="700" height="400" alt="image de l'article" priority>
         <h3 [ngClass]=articleManager.getClassNameFromCategory(article)
